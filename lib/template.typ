@@ -172,7 +172,7 @@
       studentnumber: studentnumber,
       course-abreviation: course-abreviation,
       company: company, 
-      logo_path: logo_path,
+      //logo_path: logo_path,
       submission-date: submission-date,
     )
   } else {

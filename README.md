@@ -1,6 +1,8 @@
 # DHBW Stuttgart Typst Template
 
-This is an **`unofficial`** template for writing a report or thesis in the `HAW Hamburg` department of `Computer Science` design using [Typst](https://github.com/typst/typst).
+This repository is a fork of the well written and documented Template created by [Lasse Rosenow](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template). 
+
+It is adapted to be used as an **unofficial** template for creating reports, Praxisdokumentationen and thesis at the `DHBW Sttutgart` using [Typst](https://github.com/typst/typst), a new markup-based typesetting system.
 
 ## Required Fonts
 

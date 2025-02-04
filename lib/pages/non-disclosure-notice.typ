@@ -2,7 +2,7 @@
 
 #let non_disclosure_notice(company) = {
   heading(
-    outlined: true,
+    outlined: false,
     numbering: none,
     bookmarked: true,
     "Sperrvermerk",
@@ -11,7 +11,7 @@
   text("Die vorliegende Arbeit kann interne, vertrauliche Informationen der " + company + " enthalten. Die Weitergabe des Inhalts der Arbeit im Gesamten oder in Teilen sowie das Anfertigen von Kopien oder Abschriften auch in digitaler Form sind grundsätzlich untersagt. Ausnahmen bedürfen der schriftlichen Genehmigung der Firma " + company + ".")
 
   v(40pt)
-
+  
   grid(
     columns: 3,
     gutter: 10pt,

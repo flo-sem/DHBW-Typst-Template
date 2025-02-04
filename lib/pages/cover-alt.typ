@@ -13,7 +13,11 @@
   professor: "",
   subject: "",
   study-course: "",
-  supervisors: (),
+  supervisor: "",
+  duration: "",
+  studentnumber: "",
+  course-abreviation: "",
+  company: "", 
   submission-date: none,
 ) = {
   // Set the document's basic properties.

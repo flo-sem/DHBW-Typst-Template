@@ -2,7 +2,7 @@
 
 #let declaration_of_independent_processing() = {
   heading(
-    outlined: true,
+    outlined: false,
     numbering: none,
     bookmarked: true,
     translations.declaration-of-independent-processing,
