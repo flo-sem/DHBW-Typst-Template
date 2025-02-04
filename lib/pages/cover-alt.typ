@@ -7,9 +7,11 @@
   is-report: false,
 
   title: "",
+  subtitle: "",
   author: "",
-  faculty: "",
-  department: "",
+  course: "",
+  professor: "",
+  subject: "",
   study-course: "",
   supervisors: (),
   submission-date: none,
@@ -26,12 +28,12 @@
     top + right,
     dx: -13mm,
     dy: 10mm,
-    image("../assets/logo.svg", width: 164pt)
+    image("../assets/dhbw_stuttgart.svg", width: 138pt)
   )
 
   // Title etc.
   pad(
-    left: 57mm,
+    left: 50mm,
     top: 66mm,
     right: 18mm,
     stack(
@@ -45,8 +47,8 @@
         v(2mm)
       },
       // Author
-      text(author, size: 9pt),
-      v(13mm),
+      text(author, size: 12pt),
+      v(10mm),
       // Title
       par(
         leading: 9pt,
@@ -54,12 +56,12 @@
       ),
       v(5mm),
       line(start: (0pt, 0pt), length: 30pt, stroke: 1mm),
-      v(12mm),
-      // Faculty
-      text(translations.faculty-of + " " + faculty, size: 10pt, weight: "bold"),
-      v(2mm),
-      // Department
-      text(translations.department-of + " " + department, size: 10pt),
+      v(5mm),
+      // Subtitle
+
+      text("Duale Hochschule Baden-Württemberg " + "Stuttgart", size: 14pt ),
+      v(8mm),
+      //text(author),
     )
   )
 
@@ -74,11 +76,18 @@
         stack(
           line(start: (0pt, 0pt), length: 25pt, stroke: 0.9mm),
           v(3mm),
-          text("HOCHSCHULE FÜR ANGEWANDTE", size: 9pt, weight: "bold", font: "Open Sans"),
-          v(2mm),
-          text("WISSENSCHAFTEN HAMBURG", size: 9pt, weight: "bold", font: "Open Sans"),
-          v(2mm),
-          text("Hamburg University of Applied Sciences", size: 9pt, font: "Open Sans"),
+          if course.len() > 0 {
+            text([*Kurs:* ] + h(12mm) + course , font: "Open Sans", size: 12pt)
+            v(2mm)
+          },
+          if subject.len() > 0 {
+            text([*Vorlesung:* ] +h(2mm) + subject , font: "Open Sans" , size: 12pt)
+            v(2mm)
+          },
+          if professor.len() > 0 {
+            text([*Dozent:* ] + h(8mm )+ professor , font: "Open Sans" , size: 12pt)
+            v(2mm)
+          },
         )
       )
     )

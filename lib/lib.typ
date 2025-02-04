@@ -2,7 +2,9 @@
   language: "en",
   title: "",
   author: "",
-  faculty: "",
+  course: "",
+  professor: "",
+  subject: "",
   department: "",
   include-declaration-of-independent-processing: false,
   body,
@@ -16,20 +18,61 @@
 
     language: language,
     
-    title-de: title,
-    keywords-de: none,
-    abstract-de: none,
-
-    title-en: title,
-    keywords-en: none,
-    abstract-en: none,
-
+    title: title, 
     author: author,
-    faculty: faculty,
+    course: course,
+    professor: professor,
+    subject: subject,
     department: department,
     study-course: none,
-    supervisors: (),
+    supervisor: "",
     submission-date: none,
+    include-declaration-of-independent-processing: include-declaration-of-independent-processing,
+    body,
+  )
+}
+
+#let praxisdokumentation(
+  language: "en",
+  title: "",
+  number: "T2000",
+  author: "",
+  course: "",
+  professor: "",
+  subject: "",
+  study-course: "",
+  include-declaration-of-independent-processing: false,
+  duration: "",
+  studentnumber: "",
+  course-abreviation: "",
+  company: "", 
+  supervisor: "",
+  logo_path: "assets/dhbw_stuttgart.svg",
+  submission-date: none,
+  body,
+) = {
+  import "template.typ": template
+  template(
+    is-thesis: false,
+    is-master-thesis: false,
+    is-bachelor-thesis: false,
+    is-report: false,
+
+    language: language,
+    
+    title: title,
+    author: author,
+    course: course,
+    professor: professor,
+    subject: subject,
+    study-course: study-course,
+    supervisor: supervisor,
+    duration: duration,
+    studentnumber: studentnumber,
+    course-abreviation: course-abreviation,
+    company: company, 
+    logo_path: logo_path,
+    submission-date: submission-date,
     include-declaration-of-independent-processing: include-declaration-of-independent-processing,
     body,
   )
@@ -50,7 +93,7 @@
   faculty: "",
   department: "",
   study-course: "",
-  supervisors: (),
+  supervisor: "",
   submission-date: none,
   include-declaration-of-independent-processing: true,
   body,
@@ -73,60 +116,12 @@
     abstract-en: abstract-en,
 
     author: author,
-    faculty: faculty,
     department: department,
     study-course: study-course,
-    supervisors: supervisors,
+    supervisor: supervisor,
     submission-date: submission-date,
     include-declaration-of-independent-processing: include-declaration-of-independent-processing,
     body,
   )
 }
 
-#let master-thesis(
-  language: "en",
-
-  title-de: "",
-  keywords-de: none,
-  abstract-de: none,
-
-  title-en: none,
-  keywords-en: none,
-  abstract-en: none,
-
-  author: "",
-  faculty: "",
-  department: "",
-  study-course: "",
-  supervisors: (),
-  submission-date: none,
-  include-declaration-of-independent-processing: true,
-  body,
-) = {
-  import "template.typ": template
-  template(
-    is-thesis: true,
-    is-master-thesis: true,
-    is-bachelor-thesis: false,
-    is-report: false,
-
-    language: language,
-
-    title-de: title-de,
-    keywords-de: keywords-de,
-    abstract-de: abstract-de,
-
-    title-en: title-en,
-    keywords-en: keywords-en,
-    abstract-en: abstract-en,
-
-    author: author,
-    faculty: faculty,
-    department: department,
-    study-course: study-course,
-    supervisors: supervisors,
-    submission-date: submission-date,
-    include-declaration-of-independent-processing: include-declaration-of-independent-processing,
-    body,
-  )
-}

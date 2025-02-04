@@ -1,2 +1,4 @@
 templates/**/*.pdf
 generated
+TODO
+*.pdf

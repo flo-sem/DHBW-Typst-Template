@@ -6,21 +6,28 @@
 
   language: "en",
 
-  title-de: "",
   keywords-de: none,
   abstract-de: none,
 
-  title-en: none,
   keywords-en: none,
   abstract-en: none,
 
+  title: "",
   author: "",
-  faculty: "",
+  course: "",
+  professor: "",
+  subject: "",
   department: "",
   study-course: "",
-  supervisors: (),
-  submission-date: none,
-  include-declaration-of-independent-processing: false,
+  supervisor: "",
+  duration: "",
+  studentnumber: "",
+  course-abreviation: "",
+  company: "", 
+  logo_path: "",
+  submission-date: none, 
+  include-declaration-of-independent-processing: true,
+  include-non-disclosure-notice: true,
   body,
 ) = {
   let HEADING_1_TOP_MARGIN = if is-thesis {
@@ -30,13 +37,9 @@
   }
   let PAGE_MARGIN_TOP = 37mm
 
-  let title = title-de
-  if language == "en" {
-    title = title-en
-  }
 
   // Set the document's basic properties.
-  set document(author: author, title: title, date: submission-date)
+  set document(author: author, title: title)
   set page(
     margin: (left: 31.5mm, right: 31.5mm, top: PAGE_MARGIN_TOP, bottom: 56mm),
     numbering: "1",
@@ -149,21 +152,67 @@
   }
 
   // Cover
-  import "pages/cover.typ": cover_page
-  cover_page(
-    is-thesis: is-thesis,
-    is-master-thesis: is-master-thesis,
-    is-bachelor-thesis: is-bachelor-thesis,
-    is-report: is-report,
+  if is-report {
+    import "pages/cover-alt.typ": cover_page
+    cover_page(
+      is-thesis: is-thesis,
+      is-master-thesis: is-master-thesis,
+      is-bachelor-thesis: is-bachelor-thesis,
+      is-report: is-report,
 
-    title: title,
-    author: author,
-    faculty: faculty,
-    department: department,
-    study-course: study-course,
-    supervisors: supervisors,
-    submission-date: submission-date,
-  )
+      title: title,
+      author: author,
+      course: course,
+      professor: professor,
+      subject: subject,
+      //department: department,
+      study-course: study-course,
+      supervisor: supervisor,
+      duration: duration,
+      studentnumber: studentnumber,
+      course-abreviation: course-abreviation,
+      company: company, 
+      logo_path: logo_path,
+      submission-date: submission-date,
+    )
+  } else {
+    import "pages/cover-main.typ": cover_page
+    cover_page(
+      is-thesis: is-thesis,
+      is-master-thesis: is-master-thesis,
+      is-bachelor-thesis: is-bachelor-thesis,
+      is-report: is-report,
+
+      title: title,
+      author: author,
+      course: course,
+      professor: professor,
+      subject: subject,
+      //department: department,
+      study-course: study-course,
+      supervisor: supervisor,
+      duration: duration,
+      studentnumber: studentnumber,
+      course-abreviation: course-abreviation,
+      company: company, 
+      logo_path: logo_path,
+      submission-date: submission-date,
+    ) 
+
+  }
+
+  // Non Disclosure Notice
+  if include-non-disclosure-notice {
+    pagebreak(weak: true)
+    import "pages/non-disclosure-notice.typ": non_disclosure_notice
+    non_disclosure_notice(company)
+  }
+  // Declaration of independent processing
+  if include-declaration-of-independent-processing {
+    pagebreak(weak: true)
+    import "pages/declaration_of_independent_processing.typ": declaration_of_independent_processing
+    declaration_of_independent_processing()
+  }
 
   // Abstract
   if abstract-de != none or abstract-en != none {
@@ -216,10 +265,5 @@
 
   body
 
-  // Declaration of independent processing
-  if include-declaration-of-independent-processing {
-    pagebreak(weak: true)
-    import "pages/declaration_of_independent_processing.typ": declaration_of_independent_processing
-    declaration_of_independent_processing()
-  }
+
 }
